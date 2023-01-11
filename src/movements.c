@@ -72,7 +72,9 @@ void	reverse_rotate_element(t_element **stack)
 {
 	t_element *last;
 	t_element *first;
-	
+
+	if(!(*stack && (*stack)->next))
+		return ;	
 	first = *stack;
 	last = lst_last(first);
 	last->previous->next = NULL;
@@ -86,7 +88,8 @@ void	rotate_element(t_element **stack)
 {
 	t_element *last;
 	t_element *first;
-	
+	if(!(*stack && (*stack)->next))
+		return ;
 	first = *stack;
 	last = lst_last(first);
 

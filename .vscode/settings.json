@@ -1,0 +1,10 @@
+{
+    "makefile.launchConfigurations": [
+        {
+            "cwd": "/Users/albagarc/Desktop/42cursus/pushv4_ordena_no_efficient",
+            "binaryPath": "/Users/albagarc/Desktop/42cursus/pushv4_ordena_no_efficient/push_swap",
+            //"binaryArgs": ["1","0", "6", "7", "9", "5", "3", "2", "4", "8"]
+            "binaryArgs": ["1","19", "4", "39", "3", "12", "33", "18", "25", "8", "0", "5", "32", "37", "30", "22", "23", "29", "27", "38", "20", "10", "24", "35", "7", "28", "6", "31", "14", "2", "17", "13", "9", "15", "21", "26", "34", "11", "36", "16" ]
+        }
+    ]
+}

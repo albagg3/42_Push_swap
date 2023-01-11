@@ -68,7 +68,7 @@ int	main(int argc, char **argv)
 //	rotate_element(&a);
 //	reverse_rotate_element(&a);
 //	reverse_rotate_element(&a);
-	print_list(&a, &b);
+//	print_list(&a, &b);
 }
 
 
