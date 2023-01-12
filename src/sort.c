@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/14 16:58:33 by albagarc          #+#    #+#             */
-/*   Updated: 2023/01/08 21:03:09 by albagarc         ###   ########.fr       */
+/*   Updated: 2023/01/12 18:01:57 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -101,7 +101,7 @@ int	is_min(int index)
 	else
 		return (0);
 }
-int	is_next_min(int index)
+int	next_min(int index)
 {
 	int	min_next_index;
 
@@ -134,14 +134,15 @@ void	sort_5_to_b(t_element **stack_1, t_element **stack_2, int length)
 	last = lst_last(t);
 	while (lst_size(t) > 3)
 	{
-		if (is_min(t->index) || (is_next_min(t->index) && length != 4))
+		if (is_min(t->index) || (next_min(t->index) && length != 4))
 			print_do_push(stack_1, stack_2, 'b');
-		else if (is_min(t->next->index) || (is_next_min(t->next->index) && length != 4))
+		else if (is_min(t->next->index) || (next_min(t->next->index) && \
+			length != 4))
 		{
 			print_do_swap(stack_1, 'a');
 			print_do_push(stack_1, stack_2, 'b');
 		}
-		else if (is_min(last->index) || (is_next_min(last->index) && length != 4))
+		else if (is_min(last->index) || (next_min(last->index) && length != 4))
 		{
 			print_do_rrotate(stack_1, 'a');
 			print_do_push(stack_1, stack_2, 'b');

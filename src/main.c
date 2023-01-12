@@ -6,9 +6,10 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:03:16 by albagarc          #+#    #+#             */
-/*   Updated: 2023/01/12 14:58:17 by albagarc         ###   ########.fr       */
+/*   Updated: 2023/01/12 18:07:17 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "../inc/defines.h"
 #include "../inc/errors.h"
 #include "../lib/libft_src/libft.h"
@@ -16,59 +17,67 @@
 #include <stdio.h>
 void	print_list (t_element **list_a, t_element **list_b);
 
+
+void	lstfree(t_element **lst)
+{
+	t_element	*temp;
+
+	while (*lst != NULL)
+	{
+		temp = *lst;
+		while (temp != NULL)
+		{
+			free (temp);
+			temp = temp->next;
+		}
+		*lst = NULL;
+	}
+}
+
 void	check_number_arguments(t_element **stack_1, t_element **stack_2, int length)
 {
-	int min_index;
+	int	min_index;
 
 	min_index = min_index_in_stack(stack_1);
-	if(length == 1)
+	if (length == 1)
 		exit (0);
-	if(length > 1 && length <= 3)
+	if (length > 1 && length <= 3)
 		sort_3(stack_1, length, min_index);
-	if(length > 3 && length <= 5)
+	if (length > 3 && length <= 5)
 		sort_5(stack_1, stack_2, length);
-	if(length > 5 && length <= 100)
+	if (length > 5 && length <= 100)
 		sort_100_500(stack_1, stack_2, length, 20);
-	if(length > 100 && length <= 500)
+	if (length > 100 && length <= 500)
 		sort_100_500(stack_1, stack_2, length, 62);
+	lstfree(stack_1);
 }
 
 int	main(int argc, char **argv)
 {
 	t_element	*a;
 	t_element	*b;
-	t_element *temp;
-	int i;
-	
+	t_element	*temp;
+	int			i;
+
 	b = NULL;
 	i = 1;
-	//si solo hay un numero que hay que hacer ahora mismo entra en el if
-
 	if (argc >= 2)
 	{
 		ft_is_dup(argv, argc - 1); //me checkea que todos los argumentos esten bien.
-		while(argv[i])
+		while (argv[i])
 		{
 			temp = lst_new(ft_atoi(argv[i]));
 			lst_add_back(&a, temp);
 			i++;
 		}
 		set_index(&a);
-		check_number_arguments(&a, &b, argc - 1);
+		if (is_not_sorted(&a))
+			check_number_arguments(&a, &b, argc - 1);
+		lstfree(&a);
 	}
 	else
 		terminate(ERR_NOARGS);
-//	swap_element(&a);
 //	print_list(&a, &b);
-//	swap_element(&a);
-//	push_element(&a, &b);
-//	push_element(&a, &b);
-//	push_element(&a, &b);
-//	rotate_element(&a);
-//	rotate_element(&a);
-//	reverse_rotate_element(&a);
-//	reverse_rotate_element(&a);
-	print_list(&a, &b);
 }
 
 

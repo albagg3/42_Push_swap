@@ -6,29 +6,28 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 11:30:52 by albagarc          #+#    #+#             */
-/*   Updated: 2023/01/08 20:40:52 by albagarc         ###   ########.fr       */
+/*   Updated: 2023/01/12 18:04:27 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../inc/defines.h"
 #include <stddef.h>
-#include <../inc/utils.h>
+#include "../inc/utils.h"
 #include <stdio.h>
 
 void	swap_element(t_element **stack)
 {
-	t_element *first;
-	t_element *second;
-	t_element *third;
+	t_element	*first;
+	t_element	*second;
+	t_element	*third;
 
 	first = *stack;
 	second = first->next;
 	third = second->next;
-	
 	second->previous = NULL;
 	second->next = first;
 	first->previous = second;
-	if(third)
+	if (third)
 	{
 		first->next = third;
 		third->previous = first;
@@ -36,13 +35,12 @@ void	swap_element(t_element **stack)
 	else
 		first->next = NULL;
 	*stack = second;
-
 }
 
 void	push_element(t_element **stack_1, t_element **stack_2)
 {
-	t_element *first_1;
-	t_element *first_2;
+	t_element	*first_1;
+	t_element	*first_2;
 
 	first_1 = *stack_1;
 	first_2 = *stack_2;
@@ -55,7 +53,7 @@ void	push_element(t_element **stack_1, t_element **stack_2)
 	}
 	if (first_2)
 	{
-		if(first_1->next == NULL) 
+		if (first_1->next == NULL)
 			*stack_1 = NULL;
 		else
 		{
@@ -70,11 +68,11 @@ void	push_element(t_element **stack_1, t_element **stack_2)
 
 void	reverse_rotate_element(t_element **stack)
 {
-	t_element *last;
-	t_element *first;
+	t_element	*last;
+	t_element	*first;
 
-	if(!(*stack && (*stack)->next))
-		return ;	
+	if (!(*stack && (*stack)->next))
+		return ;
 	first = *stack;
 	last = lst_last(first);
 	last->previous->next = NULL;
@@ -86,17 +84,16 @@ void	reverse_rotate_element(t_element **stack)
 
 void	rotate_element(t_element **stack)
 {
-	t_element *last;
-	t_element *first;
-	if(!(*stack && (*stack)->next))
+	t_element	*last;
+	t_element	*first;
+
+	if (!(*stack && (*stack)->next))
 		return ;
 	first = *stack;
 	last = lst_last(first);
-
 	first->next->previous = NULL;
 	*stack = first->next;
 	first->next = NULL;
 	first->previous = last;
 	last->next = first;
-
 }
