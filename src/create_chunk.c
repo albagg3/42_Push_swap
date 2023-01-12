@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:51:02 by albagarc          #+#    #+#             */
-/*   Updated: 2023/01/11 10:53:25 by albagarc         ###   ########.fr       */
+/*   Updated: 2023/01/12 14:05:19 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -80,6 +80,8 @@ int move_in_stack_b(t_element **stack_a, t_element **stack_b, int length, int i)
 			//	write(1, "fallo\n", 6);
 				break ;
 				}
+			if((*stack_b)->index == max)
+				return(1) ;
 			//write(1, "encontrado\n", 11);
 		}
 		if (i <= length / 2)

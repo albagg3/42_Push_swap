@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:03:16 by albagarc          #+#    #+#             */
-/*   Updated: 2023/01/09 15:00:50 by albagarc         ###   ########.fr       */
+/*   Updated: 2023/01/12 14:58:17 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -68,7 +68,7 @@ int	main(int argc, char **argv)
 //	rotate_element(&a);
 //	reverse_rotate_element(&a);
 //	reverse_rotate_element(&a);
-//	print_list(&a, &b);
+	print_list(&a, &b);
 }
 
 
