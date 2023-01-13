@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/01 15:03:16 by albagarc          #+#    #+#             */
-/*   Updated: 2023/01/12 18:07:17 by albagarc         ###   ########.fr       */
+/*   Updated: 2023/01/13 16:02:58 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	check_number_arguments(t_element **stack_1, t_element **stack_2, int length
 		sort_100_500(stack_1, stack_2, length, 20);
 	if (length > 100 && length <= 500)
 		sort_100_500(stack_1, stack_2, length, 62);
+	//	print_list(&a, &b);
 	lstfree(stack_1);
 }
 
@@ -77,7 +78,6 @@ int	main(int argc, char **argv)
 	}
 	else
 		terminate(ERR_NOARGS);
-//	print_list(&a, &b);
 }
 
 

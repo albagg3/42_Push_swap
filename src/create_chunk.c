@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:51:02 by albagarc          #+#    #+#             */
-/*   Updated: 2023/01/12 18:22:46 by albagarc         ###   ########.fr       */
+/*   Updated: 2023/01/13 15:26:03 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -180,6 +180,6 @@ void	sort_100_500(t_element **stack_a, t_element **stack_b, int len, int num_in_
 		}
 	}
 	*stack_a = NULL;
-	print_list(stack_a, stack_b);
+//	print_list(stack_a, stack_b);
 	back_to_stack_a(stack_b, stack_a);
 }
