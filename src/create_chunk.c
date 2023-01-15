@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:51:02 by albagarc          #+#    #+#             */
-/*   Updated: 2023/01/13 17:27:44 by albagarc         ###   ########.fr       */
+/*   Updated: 2023/01/15 12:55:46 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -47,7 +47,7 @@ void	organize_stack_b(t_element **stack_b, t_element **stack_a, int num_in_ch)
 	min_in_chunk = chunk_range(stack_b, num_in_ch);
 	if (total_len < num_in_ch)
 		max_in_chunk = total_len;
-	if ((*stack_b)->index < min_in_chunk + 10)
+	if ((*stack_b)->index < min_in_chunk + (num_in_ch / 2))
 	{
 		if (*stack_a && (*stack_a)->index > max_in_chunk)
 			print_do_rotate_both(stack_a, stack_b);
@@ -60,15 +60,15 @@ int	move_in_stack_b(t_element **stack_a, t_element **stack_b, int length, int i)
 {
 	int	active_swap;
 	int	max;
-	t_element *last;
+//	t_element *last;
 
-	last = lst_last(*stack_b);
+//	last = lst_last(*stack_b);
 	max = lst_size(*stack_b) - 1;
 	active_swap = 0;
 	while (*stack_b && (*stack_b)->index != max)
 	{
-		if((*stack_b)->next->index == max - 1)
-			print_do_swap(stack_b, 'b');
+//		if((*stack_b)->next->index == max - 1)
+//			print_do_swap(stack_b, 'b');
 		if ((*stack_b)->index == max - 1)
 		{
 			print_do_push(stack_a, stack_b, 'a');
@@ -113,7 +113,7 @@ int	is_chunk(t_element **stack_a, t_element **stack_b, int length, int i)
 	int	num_in_ch;
 
 	if (lst_size(*stack_a) + lst_size(*stack_b) > 100)
-		num_in_ch = 65;
+		num_in_ch = 62;
 	else
 		num_in_ch = 20;
 	move_in_stack_a(stack_a, length, i);
