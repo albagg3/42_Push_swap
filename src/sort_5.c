@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   sort_5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/14 16:58:33 by albagarc          #+#    #+#             */
-/*   Updated: 2023/01/12 18:01:57 by albagarc         ###   ########.fr       */
+/*   Created: 2023/01/15 14:04:08 by albagarc          #+#    #+#             */
+/*   Updated: 2023/01/15 14:11:14 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -14,83 +14,6 @@
 #include <stddef.h>
 #include <stdio.h>
 
-void	print_list1(t_element **list_a)
-{
-	t_element	*temp_a;
-
-	temp_a = *list_a;
-	while (temp_a)
-	{
-		temp_a = temp_a->next;
-	}
-}
-
-int	min_index_in_stack(t_element **stack)
-{
-	t_element	*temp;
-	int			i;
-
-	temp = *stack;
-	i = temp->index;
-	while (temp)
-	{
-		if (i > temp->index)
-			i = temp->index;
-		temp = temp->next;
-	}
-	return (i);
-}
-
-int	is_not_sorted(t_element **stack)
-{
-	t_element	*temp;
-	int			i;
-
-	temp = *stack;
-	i = min_index_in_stack(stack);
-	while (temp)
-	{
-		if (temp->index == i)
-		{
-			i++;
-			temp = temp->next;
-		}
-		else
-			return (1);
-	}
-	return (0);
-}
-
-void	sort_3(t_element **stack, int length, int min_i)
-{
-	t_element	*t;
-
-	t = *stack;
-	if (length == 2)
-	{
-		if (t->index > t->next->index)
-			print_do_swap(stack, 'a');
-		else
-			return ;
-	}
-	else
-	{
-		while (is_not_sorted(stack))
-		{
-			t = *stack;
-			if ((t->index == min_i && t->next->index == min_i + 2) || \
-				(t->index == min_i + 2 && t->next->index == min_i + 1) || \
-					(t->index == min_i + 1 && t->next->index == min_i))
-				print_do_swap(stack, 'a');
-			else if (t->index == min_i + 2 && t->next->index == min_i)
-				print_do_rotate(stack, 'a');
-			else
-				print_do_rrotate(stack, 'a');
-		}
-	}
-}
-
-//una funcion que decida si es min index o no
 int	is_min(int index)
 {
 	int	min_index;
@@ -101,6 +24,7 @@ int	is_min(int index)
 	else
 		return (0);
 }
+
 int	next_min(int index)
 {
 	int	min_next_index;
@@ -112,7 +36,7 @@ int	next_min(int index)
 		return (0);
 }
 
-int	lst_size(t_element *lst)
+int	lst_size(t_elem *lst)
 {
 	int	i;
 
@@ -125,10 +49,10 @@ int	lst_size(t_element *lst)
 	return (i);
 }
 
-void	sort_5_to_b(t_element **stack_1, t_element **stack_2, int length)
+void	sort_5_to_b(t_elem **stack_1, t_elem **stack_2, int length)
 {
-	t_element	*t;
-	t_element	*last;
+	t_elem	*t;
+	t_elem	*last;
 
 	t = *stack_1;
 	last = lst_last(t);
@@ -154,10 +78,10 @@ void	sort_5_to_b(t_element **stack_1, t_element **stack_2, int length)
 	}
 }
 
-void	sort_5(t_element **stack_1, t_element **stack_2, int length)
+void	sort_5(t_elem **stack_1, t_elem **stack_2, int length)
 {
-	t_element	*temp_2;
-	int			min_index;
+	t_elem	*temp_2;
+	int		min_index;
 
 	temp_2 = *stack_2;
 	if (!is_not_sorted(stack_1))

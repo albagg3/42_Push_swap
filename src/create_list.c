@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 15:41:05 by albagarc          #+#    #+#             */
-/*   Updated: 2023/01/12 18:10:09 by albagarc         ###   ########.fr       */
+/*   Updated: 2023/01/15 13:55:25 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include <stdlib.h>
@@ -14,11 +14,11 @@
 #include "../inc/errors.h"
 #include <stdio.h>
 
-t_element	*lst_new(int content)
+t_elem	*lst_new(int content)
 {
-	t_element	*new;
+	t_elem	*new;
 
-	new = malloc(sizeof(t_element));
+	new = malloc(sizeof(t_elem));
 	if (!new)
 		return (0);
 	new->value = content;
@@ -27,7 +27,7 @@ t_element	*lst_new(int content)
 	return (new);
 }
 
-t_element	*lst_last(t_element *lst)
+t_elem	*lst_last(t_elem *lst)
 {
 	if (lst != NULL)
 		while (lst->next != NULL)
@@ -35,9 +35,9 @@ t_element	*lst_last(t_element *lst)
 	return (lst);
 }
 
-void	lst_add_back(t_element **first, t_element *new_el)
+void	lst_add_back(t_elem **first, t_elem *new_el)
 {
-	t_element	*temp;
+	t_elem	*temp;
 
 	if (*first == NULL)
 		*first = new_el;
@@ -49,11 +49,11 @@ void	lst_add_back(t_element **first, t_element *new_el)
 	}
 }
 
-void	set_index(t_element **first)
+void	set_index(t_elem **first)
 {
-	t_element	*temp;
-	t_element	*compare;
-	int			i;
+	t_elem	*temp;
+	t_elem	*compare;
+	int		i;
 
 	temp = *first;
 	while (temp)

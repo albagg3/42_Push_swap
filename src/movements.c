@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/13 11:30:52 by albagarc          #+#    #+#             */
-/*   Updated: 2023/01/12 18:04:27 by albagarc         ###   ########.fr       */
+/*   Updated: 2023/01/15 13:31:24 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,11 @@
 #include "../inc/utils.h"
 #include <stdio.h>
 
-void	swap_element(t_element **stack)
+void	swap_element(t_elem **stack)
 {
-	t_element	*first;
-	t_element	*second;
-	t_element	*third;
+	t_elem	*first;
+	t_elem	*second;
+	t_elem	*third;
 
 	first = *stack;
 	second = first->next;
@@ -37,10 +37,10 @@ void	swap_element(t_element **stack)
 	*stack = second;
 }
 
-void	push_element(t_element **stack_1, t_element **stack_2)
+void	push_element(t_elem **stack_1, t_elem **stack_2)
 {
-	t_element	*first_1;
-	t_element	*first_2;
+	t_elem	*first_1;
+	t_elem	*first_2;
 
 	first_1 = *stack_1;
 	first_2 = *stack_2;
@@ -66,10 +66,10 @@ void	push_element(t_element **stack_1, t_element **stack_2)
 	}
 }
 
-void	reverse_rotate_element(t_element **stack)
+void	reverse_rotate_element(t_elem **stack)
 {
-	t_element	*last;
-	t_element	*first;
+	t_elem	*last;
+	t_elem	*first;
 
 	if (!(*stack && (*stack)->next))
 		return ;
@@ -82,10 +82,10 @@ void	reverse_rotate_element(t_element **stack)
 	*stack = last;
 }
 
-void	rotate_element(t_element **stack)
+void	rotate_element(t_elem **stack)
 {
-	t_element	*last;
-	t_element	*first;
+	t_elem	*last;
+	t_elem	*first;
 
 	if (!(*stack && (*stack)->next))
 		return ;
