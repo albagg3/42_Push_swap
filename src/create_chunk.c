@@ -6,7 +6,7 @@
 /*   By: albagarc <albagarc@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/21 15:51:02 by albagarc          #+#    #+#             */
-/*   Updated: 2023/01/13 15:26:03 by albagarc         ###   ########.fr       */
+/*   Updated: 2023/01/13 17:27:44 by albagarc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../inc/defines.h"
@@ -67,6 +67,8 @@ int	move_in_stack_b(t_element **stack_a, t_element **stack_b, int length, int i)
 	active_swap = 0;
 	while (*stack_b && (*stack_b)->index != max)
 	{
+		if((*stack_b)->next->index == max - 1)
+			print_do_swap(stack_b, 'b');
 		if ((*stack_b)->index == max - 1)
 		{
 			print_do_push(stack_a, stack_b, 'a');
@@ -111,7 +113,7 @@ int	is_chunk(t_element **stack_a, t_element **stack_b, int length, int i)
 	int	num_in_ch;
 
 	if (lst_size(*stack_a) + lst_size(*stack_b) > 100)
-		num_in_ch = 62;
+		num_in_ch = 65;
 	else
 		num_in_ch = 20;
 	move_in_stack_a(stack_a, length, i);
